@@ -45,6 +45,9 @@ var databaseArray = [MongoDB, PostgreSQL, MySQL, CockroachDB, Cassandra];
 var exampleImportance = new Importance(4,3,4,2,1);
 var 2DArray = [backendArray, frontendArray, databaseArray];
 
-function create(importance, backendArray, frontendArray, databaseArray){
+function create(importance, 2DArray){
+    for(int i = 0; i < 2DArray.length; ++i){
+        console.log(2DArray[i][0].devCost);
+    }
     console.log("Hello world");
 }
