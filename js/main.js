@@ -5,4 +5,3 @@ $( "#click" ).click(function() {
 $("#closeVis").click(function() {
     $("#overlay").hide();
 });
-

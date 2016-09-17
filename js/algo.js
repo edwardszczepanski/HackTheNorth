@@ -49,6 +49,22 @@ new City("Kingston, Ontario", 1, 1, 1, 1, 1, 1)
 
 var exampleImportance = new Importance(4,3,4,2,1);
 
-function create(importance, array){
-    console.log("Hello world");
+function create(importance, data){
+    for (var i = 0; i < data.length; ++i){
+        if (true) {
+            var sum = 0;
+            sum += data[i].one   * importance.one;
+            sum += data[i].two   * importance.two;
+            sum += data[i].three * importance.three;
+            sum += data[i].four  * importance.four;
+            sum += data[i].five  * importance.five;
+            data[i].score = sum;
+            //console.log(data);
+            console.log(data[i].score);
+        } else {
+            // Yelp Integration will come later
+        }    
+    }
 }
+
+create(exampleImportance, cityData);
