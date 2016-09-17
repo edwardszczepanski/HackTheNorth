@@ -1,0 +1,25 @@
+body {
+    padding-top: 50px;
+    background: black;
+}
+.starter-template {
+  padding: 10px 15px;
+  text-align: center;
+}
+.grid-style {
+    padding: 5px;
+}
+.scroll-list ul {
+  list-style:none;
+  max-height:400px;
+  margin:0;
+  overflow:auto;
+  padding:0;
+  text-indent:10px;
+}
+.scroll-list li {
+  line-height:25px;
+}
+.scroll-list li:nth-child(even) {
+  background:#ccc;
+}
