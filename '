@@ -44,61 +44,54 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Find the Best City for You</h1>
-        <p class="lead">Using Data from all over Canada</p>
+        <h1>Canadian City Rankings</h1>
+        <p class="lead">Use this page to find the best city for you</p>
       </div>
 
     </div>
 
-    <div style="text-align: center; background: black; padding: 10px;" id="click">
-        <span style="color: white;">Click Here</span>
+    <div style="text-align: center;" id="click">
+        Click Here 
     </div>
 
     <div id="sliders" class="container starter-template">
         <div class="row text-center">
             <div class="col-sm-4 grid-style">
-                <span>Industry</span>
+                <span>Ayyy bby</span>
                 <input style="margin-top: 5px; margin-right: 8px;" id="slide" type="range" value="0.01" min="0.01" max="0.25" step="0.02">
             </div>
             <div class="col-sm-4 grid-style">
-                <span>Software Jobs</span>
+                <span>Ayyy bby</span>
                 <input style="margin-top: 5px; margin-right: 8px;" id="slide" type="range" value="0.01" min="0.01" max="0.25" step="0.02"> 
             </div>
             <div class="col-sm-4 grid-style">
-                <span>Demographics</span>
+                <span>Ayyy bby</span>
                 <input style="margin-top: 5px; margin-right: 8px;" id="slide" type="range" value="0.01" min="0.01" max="0.25" step="0.02">            </div> 
         </div>
         <div class="row text-center">
             <div class="col-sm-2"></div>
             <div class="col-sm-4 grid-style">
-                <span>Rent</span>
+                <span>Ayyy bby</span>
                 <input style="margin-top: 5px; margin-right: 8px;" id="slide" type="range" value="0.01" min="0.01" max="0.25" step="0.02"> 
             </div>
             <div class="col-sm-4 grid-style">
-                <span>Food</span>
+                <span>Ayyy bby</span>
                 <input style="margin-top: 5px; margin-right: 8px;" id="slide" type="range" value="0.01" min="0.01" max="0.25" step="0.02"> 
             </div>
             <div class="col-sm-2"></div>
         </div>
     </div>
 
-<div id="container" style="margin-top: 30px;"> 
-    <div class="col-sm-8">
+<div style="margin-top: 30px;"> 
 <iframe
-    width="600"
-    height="450"
-    frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBcULs3Vm0S7eJPMgEtzJZLksfir30hkpg&q=Space+Needle,Seattle+WA" allowfullscreen>
-    </iframe>
-    </div>
-    <div class="col-sm-4">
-        
-    </div>
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBcULs3Vm0S7eJPMgEtzJZLksfir30hkpg&q=Space+Needle,Seattle+WA" allowfullscreen>
+</iframe>
 </div>
 
-<div style="background: white;">
-<canvas id="pentagon" width="500" height="500"></canvas>
-</div>
+<canvas style="background: white;" id="pentagon" width="500" height="500"></canvas>
 
     <!-- Bootstrap core JavaScripUse this page to find the best city for yout
     ================================================== -->

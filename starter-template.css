@@ -1,5 +1,7 @@
 body {
   padding-top: 35px;
+    background: linear-gradient(#2bd, #0000ff);
+    background-repeat: no-repeat;
 }
 .starter-template {
   padding: 5px 15px;
