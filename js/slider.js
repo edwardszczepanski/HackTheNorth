@@ -24,33 +24,29 @@ class Importance {
 // One is Rent
 // Two is CPI
 // Three is Unemployment Rate
+// Four is Population
 
 var cityData = [
-  new City("Toronto, Ontario", 1, 2, 3, 4, 5, 1, 43.625985,-79.542025),
-  new City("Montreal, Quebec", 100, 100, 100, 100, 100, 1, 45.488221,-73.565538),
-  new City("Vancouver, British Columbia", 1, 1, 1, 1, 1, 1, 49.208871,-122.901347),
-  new City("Ottawa, Ontario", 1, 1, 1, 1, 1, 1, 45.4215296, -75.6971931),
-  new City("Calgary, Alberta", 1, 1, 1, 1, 1, 1, 51.040992,-114.030466),
-  new City("Edmonton, Alberta", 1, 1, 1, 1, 1, 1, 53.544389, -113.4909267),
-  new City("Québec City, Quebec", 1, 1, 1, 1, 1, 1, 46.753463,-71.430106),
-  new City("Winnipeg, Manitoba", 1, 1, 1, 1, 1, 1, 49.8997541, -97.1374937),
-  new City("Hamilton, Ontario", 1, 1, 1, 1, 1, 1, 43.261401,-79.887032),
-  new City("Waterloo, Ontario", 1, 1, 1, 1, 1, 1, 43.4642578, -80.5204096),
-  new City("London, Ontario", 1, 1, 1, 1, 1, 1, 42.9870, -81.2432),
-  new City("Niagara, Ontario", 1, 1, 1, 1, 1, 1, 43.107186,-79.006539),
-  new City("Halifax, Nova Scotia", 1, 1, 1, 1, 1, 1, 44.674538,-63.614545),
-  new City("Oshawa, Ontario", 1, 1, 1, 1, 1, 1, 43.91888,-78.859159),
-  new City("Victoria, British Columbia", 1, 1, 1, 1, 1, 1, 49.205529,-122.907447),
-  new City("Windsor, Ontario", 1, 1, 1, 1, 1, 1, 42.329805,-83.037058),
-  new City("Saskatoon, Saskatchewan", 1, 1, 1, 1, 1, 1, 52.1332, -106.6700),
-  new City("Regina, Saskatchewan", 1, 1, 1, 1, 1, 1, 50.4452, -104.6189),
-  new City("Sherbrooke, Quebec", 1, 1, 1, 1, 1, 1, 45.4010, 71.8824),
-  new City("St. John's, Newfoundland", 1, 1, 1, 1, 1, 1, 47.577628,-52.703957),
-  new City("Barrie, Ontario", 1, 1, 1, 1, 1, 1, 44.3894, 79.6903),
-  new City("Kelowna, British Columbia", 1, 1, 1, 1, 1, 1, 49.8880, 119.4960),
-  new City("Mission, British Columbia", 1, 1, 1, 1, 1, 1, 49.20703,-122.96061),
-  new City("Greater Sudbury / Grand Sudbury, Ontario", 1, 1, 1, 1, 1, 1, 46.5221, 80.9530),
-  new City("Kingston, Ontario", 1, 1, 1, 1, 1, 1, 44.2312, 76.4860)
+  new City("Toronto, Ontario", 15, 32, 48, 100, 1, 1, 43.625985,-79.542025),
+  new City("Montreal, Quebec", 76, 50, 75, 66, 1, 1, 45.488221,-73.565538),
+  new City("Vancouver, British Columbia", 0, 66, 86, 40, 1, 1, 49.208871,-122.901347),
+  new City("Ottawa, Ontario", 52, 42, 55, 20, 1, 1, 45.4215296, -75.6971931),
+  new City("Calgary, Alberta", 20, 0, 0, 22, 1, 1, 51.040992,-114.030466),
+  new City("Edmonton, Alberta", 26, 6, 25, 21, 1, 1, 53.544389, -113.4909267),
+  new City("Québec City, Quebec", 76, 51, 96, 11, 1, 1, 46.753463,-71.430106),
+  new City("Winnipeg, Manitoba", 43, 41, 48, 11, 1, 1, 49.8997541, -97.1374937),
+  new City("Hamilton, Ontario", 36, 69, 53, 11, 1, 1, 43.261401,-79.887032),
+  new City("Waterloo, Ontario", 51, 58, 71, 6, 1, 1, 43.4642578, -80.5204096),
+  new City("Halifax, Nova Scotia", 39, 32, 86, 5, 1, 1, 44.674538,-63.614545),
+  new City("Victoria, British Columbia", 30, 83, 100, 4, 1, 1, 49.205529,-122.907447),
+  new City("Windsor, Ontario", 69, 50, 69, 3, 1, 1, 42.329805,-83.037058),
+  new City("Saskatoon, Saskatchewan", 57, 18, 61, 3, 1, 1, 52.1332, -106.6700),
+  new City("Regina, Saskatchewan", 41, 16, 84, 2, 1, 1, 50.4452, -104.6189),
+  new City("Sherbrooke, Quebec", 100, 65, 75, 1, 1, 1, 45.4010, 71.8824),
+  new City("St. John's, Newfoundland", 78, 30, 50, 1, 1, 1, 47.577628,-52.703957),
+  new City("Barrie, Ontario", 33, 47, 32, 1, 1, 1, 44.3894, 79.6903),
+  new City("Kelowna, British Columbia", 59, 100, 57, 1, 1, 1, 49.8880, 119.4960),
+  new City("Kingston, Ontario", 22, 42, 71, 0, 1, 1, 44.2312, 76.4860)
 ];
 
 var markerList = [];
