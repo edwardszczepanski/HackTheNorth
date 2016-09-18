@@ -40,8 +40,8 @@
 
   </div>
 
-  <div style="text-align: center; background: #F16664; padding: 10px;" id="click">
-    <span style="color: ;">Click to Toggle Sliders</span>
+  <div style="text-align: center; background: mediumaquamarine; padding: 10px;" id="click">
+    <span style="color: ;">Toggle Customization</span>
   </div>
 
   <div id="sliders" class="container starter-template">
@@ -59,7 +59,6 @@
         <input style="margin-top: 5px; margin-right: 8px;" id="slide3" type="range" value="50" min="0" max="100" step="5">
       </div>
       <div class="row text-center">
-        <div class="col-sm-2"></div>
         <div class="col-sm-4 grid-style">
           <span>Sparsely-to-Very Populated</span>
           <input style="margin-top: 5px; margin-right: 8px;" id="slide4" type="range" value="50" min="0" max="100" step="5">
@@ -68,7 +67,10 @@
           <span>Low-to-High Median Salaries</span>
           <input style="margin-top: 5px; margin-right: 8px;" id="slide5" type="range" value="50" min="0" max="100" step="5">
         </div>
-        <div class="col-sm-2"></div>
+        <div class="col-sm-4 grid-style">
+          <span>Custom Input: <input id="text-box" type="text" name="firstname" style="text-align: center;"> <button id="goButton">OK</button></span>
+          <input style="margin-top: 0px; margin-right: 8px;" id="slide6" type="range" value="50" min="0" max="100" step="5">
+        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,57 @@
+.bold {
+  position: absolute;
+  z-index:100;
+  top: 20%;
+  color: ivory;
+}
+.navigation {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+}
+.menu {
+  list-style:none;
+  margin-top:2em;
+  text-align: center;
+}
+.menu li {
+  display: block;
+  float:left;
+}
+.menu li a {
+  display:block;
+  width:128px;
+  height:128px;
+  position:relative;
+}
+.menu li a strong {
+  position: absolute;
+  left: 0px;
+  top: 10px;
+}
+li.pivot {
+  background:url("../placeholder.svg"); }
+li.us {
+  background:url("http://image.flaticon.com/icons/svg/126/126766.svg") #0092cb; }
+
+.menu:hover li {
+  opacity:0.3;
+}
+.menu li {
+  transition-property: opacity;
+  transition-duration: 500ms;
+}
+.menu li a strong {
+  opacity:0;
+  transition-property: opacity, top;
+  transition-duration: 250ms;
+}
+.menu li:hover {
+  opacity:1;
+}
+.menu li:hover a strong {
+  opacity:1;
+  top:-23px;
+}
