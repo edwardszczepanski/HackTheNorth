@@ -1,159 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!--link rel="icon" href="../../favicon.ico"-->
 
-    <title>Hack the North</title>
+  <title>Hack the North</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="starter-template.css" rel="stylesheet">
-  </head>
+  <!-- Custom styles for this template -->
+  <link href="starter-template.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://developers.google.com/maps/documentation/javascript/demos/demos.css">
+</head>
 
-  <body>
+<body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Best Team</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">Methodology</a></li>
-            <li><a href="#contact">About Us</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-
-      <div class="starter-template">
-        <h1>Find the Best City for You</h1>
-        <p class="lead">Using Data from all over Canada</p>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Best Team</a>
       </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">Methodology</a></li>
+          <li><a href="#contact">About Us</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
 
+  <div class="container">
+
+    <div class="starter-template">
+      <h1>Find the Best City for You</h1>
+      <p class="lead">Using Data from all over Canada</p>
     </div>
 
-    <div style="text-align: center; background: black; padding: 10px;" id="click">
-        <span style="color: white;">Click Here</span>
-    </div>
+  </div>
 
-    <div id="sliders" class="container starter-template">
-        <div class="row text-center">
-            <div class="col-sm-4 grid-style">
-                <span>Industry</span>
-                <input style="margin-top: 5px; margin-right: 8px;" id="slide" type="range" value="0.01" min="0.01" max="0.25" step="0.02">
-            </div>
-            <div class="col-sm-4 grid-style">
-                <span>Software Jobs</span>
-                <input style="margin-top: 5px; margin-right: 8px;" id="slide" type="range" value="0.01" min="0.01" max="0.25" step="0.02"> 
-            </div>
-            <div class="col-sm-4 grid-style">
-                <span>Demographics</span>
-                <input style="margin-top: 5px; margin-right: 8px;" id="slide" type="range" value="0.01" min="0.01" max="0.25" step="0.02">            </div> 
+  <div style="text-align: center; background: black; padding: 10px;" id="click">
+    <span style="color: white;">Hide Sliders</span>
+  </div>
+
+  <div id="sliders" class="container starter-template">
+    <div class="row text-center">
+      <div class="col-sm-4 grid-style">
+        <span>Industry</span>
+        <input style="margin-top: 5px; margin-right: 8px;" id="slide1" type="range" value="50" min="0" max="100" step="5">
+      </div>
+      <div class="col-sm-4 grid-style">
+        <span>Software Jobs</span>
+        <input style="margin-top: 5px; margin-right: 8px;" id="slide2" type="range" value="50" min="0" max="100" step="5">
+      </div>
+      <div class="col-sm-4 grid-style">
+        <span>Demographics</span>
+        <input style="margin-top: 5px; margin-right: 8px;" id="slide3" type="range" value="50" min="0" max="100" step="5">
+      </div>
+      <div class="row text-center">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4 grid-style">
+          <span>Rent</span>
+          <input style="margin-top: 5px; margin-right: 8px;" id="slide4" type="range" value="50" min="0" max="100" step="5">
         </div>
-        <div class="row text-center">
-            <div class="col-sm-2"></div>
-            <div class="col-sm-4 grid-style">
-                <span>Rent</span>
-                <input style="margin-top: 5px; margin-right: 8px;" id="slide" type="range" value="0.01" min="0.01" max="0.25" step="0.02"> 
-            </div>
-            <div class="col-sm-4 grid-style">
-                <span>Food</span>
-                <input style="margin-top: 5px; margin-right: 8px;" id="slide" type="range" value="0.01" min="0.01" max="0.25" step="0.02"> 
-            </div>
-            <div class="col-sm-2"></div>
+        <div class="col-sm-4 grid-style">
+          <span>Food</span>
+          <input style="margin-top: 5px; margin-right: 8px;" id="slide5" type="range" value="50" min="0" max="100" step="5">
         </div>
+        <div class="col-sm-2"></div>
+      </div>
     </div>
 
-<div class="container" style="margin-top: 30px; margin-bottom: 30px;"> 
-    <div class="col-sm-8">
-        <iframe
-            width="100%"
-            height="400"
-            frameborder="0" style="border:0"
-            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBcULs3Vm0S7eJPMgEtzJZLksfir30hkpg&q=Space+Needle,Seattle+WA" allowfullscreen>
-        </iframe>
+    <div class="container" style="margin-top: 30px; margin-bottom: 30px;">
+      <div class="col-sm-8">
+        <div id="map"></div>
+        <!iframe
+        width="100%"
+        height="400"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBcULs3Vm0S7eJPMgEtzJZLksfir30hkpg&q=Space+Needle,Seattle+WA" allowfullscreen>
+      </iframe-->
     </div>
 
     <div class="col-sm-4 scroll-list">
-        <ul> 
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-    <li>text</li>
-  </ul>
+      <ul id="myList">
+      </ul>
     </div>
-</div>
+  </div>
 
-<div style="background: white; opacity: 0.85; position: absolute; top: 50px; right: 0; width: 38%; height: 100%">
-<div style="height: 5%; background: black !important; text-align: center; color: white; vertical-align: middle !important;">
-    <span>Test test test</span>
-</div>
-<canvas id="pentagon" width="500" height="500" style="height: 95%; padding: 25px;"></canvas>
-</div>
+  <div id="overlay" style="background: white; opacity: 0.85; position: absolute; top: 50px; right: 0; width: 38%; height: 94%">
+    <div id="closeVis" style="height: 5%; background: black !important; text-align: center; color: white; vertical-align: middle !important;">
+      <span>Click to Close</span>
+    </div>
+    <canvas id="pentagon" width="500" height="500" style="height: 95%; padding: 25px;"></canvas>
+  </div>
 
-    <!-- Bootstrap core JavaScripUse this page to find the best city for yout
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
-    <script src="./js/pentagon.js"></script>
-    <script>window.jQuery || document.write('<script src="./js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/main.js"></script>
-  </body>
+  <!-- Bootstrap core JavaScripUse this page to find the best city for yout
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
+  <script src="./js/pentagon.js"></script>
+  <script>window.jQuery || document.write('<script src="./js/vendor/jquery.min.js"><\/script>')</script>
+  <script src="./js/bootstrap.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/slider.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcULs3Vm0S7eJPMgEtzJZLksfir30hkpg&callback=initMap"
+    async defer></script>
+</body>
 </html>
 
 
-    <!-- Bootstrap core JavaScripUse this page to find the best city for yout
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="./js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="./js/bootstrap.min.js"></script>
-  </body>
+<!-- Bootstrap core JavaScripUse this page to find the best city for yout
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="./js/vendor/jquery.min.js"><\/script>')</script>
+<script src="./js/bootstrap.min.js"></script>
+</body>
 </html>
-
