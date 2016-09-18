@@ -49,6 +49,12 @@ var cityData = [
   new City("Kingston, Ontario", 22, 42, 71, 0, 1, 1, 44.2312, 76.4860)
 ];
 
+var one   = 50;
+var two   = 50;
+var three = 50;
+var four  = 50;
+var five  = 50;
+
 var markerList = [];
 
 function setMarkers(data) {
@@ -88,13 +94,49 @@ function initMap(data) {
   setMarkers(cityData);
 }
 
-$(function() {
-  var one   = 50;
-  var two   = 50;
-  var three = 50;
-  var four  = 50;
-  var five  = 50;
+function initVis(cityIndex){
+  ctx = $("#pentagon");
+  var data = {
+      labels: ["Rent", "CPI", "Unemployment", "Population", "Salary"],
+      datasets: [
+          {
+              label: cityData[cityIndex].name + " Data",
+              backgroundColor: "rgba(204, 204, 0, 0.8)",
+              borderColor: "rgba(45,71,57,1)",
+              pointBackgroundColor: "rgba(45,71,57,1)",
+              pointBorderColor: "#fff",
+              pointHoverBackgroundColor: "#fff",
+              pointHoverBorderColor: "rgba(179,181,198,1)",
+              data: [cityData[cityIndex].one, cityData[cityIndex].two, cityData[cityIndex].three, cityData[cityIndex].four, cityData[cityIndex].five]
+          },
+          {
+              label: "User Input",
+              backgroundColor: "rgba(0, 0, 204, 0.8)",
+              borderColor: "rgba(187,206, 168, 1)",
+              pointBackgroundColor: "rgba(255,99,132,1)",
+              pointBorderColor: "#fff",
+              pointHoverBackgroundColor: "#fff",
+              pointHoverBorderColor: "rgba(255,99,132,1)",
+              data: [one, two, three, four, five]
+          }
+      ]
+  };
+  $("#overlay").show();
+  new Chart(ctx, {
+      type: "radar",
+      data: data,
+      options: {
+              scale: {
+                  reverse: true,
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }
+      }
+  });
+}
 
+$(function() {
   var slide1 = document.getElementById('slide1');
   var slide2 = document.getElementById('slide2');
   var slide3 = document.getElementById('slide3');
@@ -160,9 +202,16 @@ $(function() {
     ul.innerHTML = '';
     for (var i = 0; i < data.length; ++i) {
       var li = document.createElement("li");
+      li.onclick=hello;
       li.appendChild(document.createTextNode((i + 1) + ":  " + data[i].name));
       ul.appendChild(li);
     }
+  }
+
+  function hello(){
+    var contents = this.innerHTML;
+    contents = parseInt(contents.charAt(0));
+    initVis(contents);
   }
 
   update();
