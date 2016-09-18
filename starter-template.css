@@ -1,6 +1,7 @@
 body {
-    padding-top: 50px;
-    background: black;
+    padding-top: 0px;
+    background: #FFFCFD;
+    font-family: 'Raleway', sans-serif;
 }
 .starter-template {
   padding: 5px 15px;
@@ -11,7 +12,7 @@ body {
 }
 .scroll-list ul {
   list-style:none;
-  max-height:400px;
+  max-height:420px;
   margin:0;
   overflow:auto;
   padding:0;
