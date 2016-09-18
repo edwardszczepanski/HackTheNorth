@@ -1,52 +1,36 @@
+class City {
+  constructor(name, one, two, three, four, five, score) {
+    this.name = name;
+    this.one = one; // 1-100
+    this.two = two; // 1-100
+    this.three = three; // 1-100
+    this.four = four; // 1-100
+    this.five = five; // 1-100
+    this.score = score; // 1-100
+  }
+}
+class Importance {
+  constructor(one, two, three, four, five) {
+    this.one = one; // 1-10
+    this.two = two; // 1-10
+    this.three = three; // 1-10
+    this.four = four; // 1-10
+    this.five = five; // 1-10
+  }
+}
+
 $(function() {
-    one   = 50;
-    two   = 50;
-    three = 50;
-    four  = 50;
-    five  = 50;
+    var one   = 50;
+    var two   = 50;
+    var three = 50;
+    var four  = 50;
+    var five  = 50;
 
     var slide1 = document.getElementById('slide1');
     var slide2 = document.getElementById('slide2');
     var slide3 = document.getElementById('slide3');
     var slide4 = document.getElementById('slide4');
     var slide5 = document.getElementById('slide5');
-
-    slide1.oninput = function(){
-        one = this.value;
-    }
-    slide2.oninput = function(){
-        two = this.value;
-    }
-    slide3.oninput = function(){
-        three = this.value;
-    }
-    slide4.oninput = function(){
-        four = this.value;
-    }
-    slide5.oninput = function(){
-        five = this.value;
-    }
-
-    class City {
-      constructor(name, one, two, three, four, five, score) {
-        this.name = name;
-        this.one = one; // 1-100
-        this.two = two; // 1-100
-        this.three = three; // 1-100
-        this.four = four; // 1-100
-        this.five = five; // 1-100
-        this.score = score; // 1-100
-      }
-    }
-    class Importance {
-      constructor(one, two, three, four, five) {
-        this.one = one; // 1-10
-        this.two = two; // 1-10
-        this.three = three; // 1-10
-        this.four = four; // 1-10
-        this.five = five; // 1-10
-      }
-    }
 
     var cityData = [
     new City("Toronto, Ontario", 1, 2, 3, 4, 5, 1),
@@ -76,6 +60,33 @@ $(function() {
     new City("Kingston, Ontario", 1, 1, 1, 1, 1, 1)
     ];
 
+    slide1.oninput = function(){
+        one = this.value;
+        update();
+    }
+    slide2.oninput = function(){
+        two = this.value;
+        update();
+    }
+    slide3.oninput = function(){
+        three = this.value;
+        update();
+    }
+    slide4.oninput = function(){
+        four = this.value;
+        update();
+    }
+    slide5.oninput = function(){
+        five = this.value;
+        update();
+    }
+
+    function update(){
+        create(cityData);
+        cityData.sort(compare);
+        console.log(cityData);
+    }
+
     function compare(a, b) {
         if (a.score > b.score) {
             return -1;
@@ -84,26 +95,20 @@ $(function() {
         }
     }
 
-    function create(importance, data){
+    function create(data){
         for (var i = 0; i < data.length; ++i){
             if (true) {
                 var sum = 0;
-                sum += data[i].one   * importance.one;
-                sum += data[i].two   * importance.two;
-                sum += data[i].three * importance.three;
-                sum += data[i].four  * importance.four;
-                sum += data[i].five  * importance.five;
+                sum += data[i].one   * one;
+                sum += data[i].two   * two;
+                sum += data[i].three * three;
+                sum += data[i].four  * four;
+                sum += data[i].five  * five;
                 data[i].score = sum;
-                console.log(data[i].score);
             } else {
                 // Yelp Integration will come later
             }
         }
-    }
-
-    function sort(data){
-      create(exampleImportance, data);
-      data.sort(compare);
     }
 
 
