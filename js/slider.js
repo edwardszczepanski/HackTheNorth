@@ -21,6 +21,8 @@ class Importance {
   }
 }
 
+var extra = false;
+
 // One is Rent
 // Two is CPI
 // Three is Unemployment Rate
@@ -55,6 +57,7 @@ var two   = 50;
 var three = 50;
 var four  = 50;
 var five  = 50;
+var six  = 50;
 
 var markerList = [];
 
@@ -75,7 +78,7 @@ function setMarkers(data) {
       //alert(this);
       var index = this.zIndex
       index = 20 - index;
-      console.log(index);
+      //console.log(index);
       initVis(index);
     });
 
@@ -106,42 +109,42 @@ function initMap(data) {
 function initVis(cityIndex){
   ctx = $("#pentagon");
   var data = {
-      labels: ["Rent", "CPI", "Unemployment", "Population", "Salary"],
-      datasets: [
-          {
-              label: cityData[cityIndex].name + " Data",
-              backgroundColor: "rgba(204, 204, 0, 0.8)",
-              borderColor: "rgba(45,71,57,1)",
-              pointBackgroundColor: "rgba(45,71,57,1)",
-              pointBorderColor: "#fff",
-              pointHoverBackgroundColor: "#fff",
-              pointHoverBorderColor: "rgba(179,181,198,1)",
-              data: [cityData[cityIndex].one, cityData[cityIndex].two, cityData[cityIndex].three, cityData[cityIndex].four, cityData[cityIndex].five]
-          },
-          {
-              label: "User Input",
-              backgroundColor: "rgba(0, 0, 204, 0.8)",
-              borderColor: "rgba(187,206, 168, 1)",
-              pointBackgroundColor: "rgba(255,99,132,1)",
-              pointBorderColor: "#fff",
-              pointHoverBackgroundColor: "#fff",
-              pointHoverBorderColor: "rgba(255,99,132,1)",
-              data: [one, two, three, four, five]
-          }
-      ]
+    labels: ["Rent", "CPI", "Unemployment", "Population", "Salary"],
+    datasets: [
+      {
+        label: cityData[cityIndex].name + " Data",
+        backgroundColor: "rgba(204, 204, 0, 0.8)",
+        borderColor: "rgba(45,71,57,1)",
+        pointBackgroundColor: "rgba(45,71,57,1)",
+        pointBorderColor: "#fff",
+        pointHoverBackgroundColor: "#fff",
+        pointHoverBorderColor: "rgba(179,181,198,1)",
+        data: [cityData[cityIndex].one, cityData[cityIndex].two, cityData[cityIndex].three, cityData[cityIndex].four, cityData[cityIndex].five]
+      },
+      {
+        label: "User Input",
+        backgroundColor: "rgba(0, 0, 204, 0.8)",
+        borderColor: "rgba(187,206, 168, 1)",
+        pointBackgroundColor: "rgba(255,99,132,1)",
+        pointBorderColor: "#fff",
+        pointHoverBackgroundColor: "#fff",
+        pointHoverBorderColor: "rgba(255,99,132,1)",
+        data: [one, two, three, four, five]
+      }
+    ]
   };
   $("#draggable").show();
   new Chart(ctx, {
-      type: "radar",
-      data: data,
-      options: {
-              scale: {
-                  reverse: true,
-                  ticks: {
-                      beginAtZero: true
-                  }
-              }
+    type: "radar",
+    data: data,
+    options: {
+      scale: {
+        reverse: true,
+        ticks: {
+          beginAtZero: true
+        }
       }
+    }
   });
 }
 
@@ -159,8 +162,36 @@ $(function() {
   var slide3 = document.getElementById('slide3');
   var slide4 = document.getElementById('slide4');
   var slide5 = document.getElementById('slide5');
+  var slide6 = document.getElementById('slide6');
 
   fixData();
+
+  $('#text-box').on('input', function() {
+    if (this.value == ''){
+      extra = false;
+    } else {
+      extra = true;
+    }
+    function http(){
+      $.ajax({
+        type: "POST",
+        dataType: 'jsonp',
+        data: {pvalue : this.value},
+        cache: false,
+        url: "localhost:3000/api/",
+        success: function(data)
+        {
+          return weighting;
+        }
+      });
+    }
+    //console.log(this.value);
+    // do your stuff
+  });
+
+  $('#goButton').on('click', function() {
+    update();
+  });
 
   slide1.oninput = function(){
     one = this.value;
@@ -182,6 +213,10 @@ $(function() {
     five = this.value;
     update();
   }
+  slide6.oninput = function(){
+    six = this.value;
+    update();
+  }
 
   function update(){
     $("#draggable").hide();
@@ -189,7 +224,7 @@ $(function() {
     cityData.sort(compare);
     generateList(cityData);
     reloadMarkers(cityData);
-    console.log(cityData);
+    //console.log(cityData);
   }
 
   function compare(a, b) {
@@ -202,7 +237,7 @@ $(function() {
 
   function create(data){
     for (var i = 0; i < data.length; ++i){
-      if (true) {
+      if (!extra) {
         var sum = 0;
         sum += data[i].one   * one;
         sum += data[i].two   * two;
@@ -211,7 +246,15 @@ $(function() {
         sum += data[i].five  * five;
         data[i].score = sum;
       } else {
-        // Yelp Integration will come later
+        // Yelp Integration Scaffolding
+        var sum = 0;
+        sum += data[i].one   * one;
+        sum += data[i].two   * two;
+        sum += data[i].three * three;
+        sum += data[i].four  * four;
+        sum += data[i].five  * five;
+        sum += Math.random() * 10 * six;
+        data[i].score = sum;
       }
     }
   }
