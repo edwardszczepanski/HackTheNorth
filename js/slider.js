@@ -25,28 +25,29 @@ class Importance {
 // Two is CPI
 // Three is Unemployment Rate
 // Four is Population
+// Five should be population
 
 var cityData = [
-  new City("Toronto, Ontario", 15, 32, 48, 100, 1, 1, 43.625985,-79.542025),
-  new City("Montreal, Quebec", 76, 50, 75, 66, 1, 1, 45.488221,-73.565538),
-  new City("Vancouver, British Columbia", 0, 66, 86, 40, 1, 1, 49.208871,-122.901347),
-  new City("Ottawa, Ontario", 52, 42, 55, 20, 1, 1, 45.4215296, -75.6971931),
-  new City("Calgary, Alberta", 20, 0, 0, 22, 1, 1, 51.040992,-114.030466),
-  new City("Edmonton, Alberta", 26, 6, 25, 21, 1, 1, 53.544389, -113.4909267),
-  new City("Québec City, Quebec", 76, 51, 96, 11, 1, 1, 46.753463,-71.430106),
-  new City("Winnipeg, Manitoba", 43, 41, 48, 11, 1, 1, 49.8997541, -97.1374937),
-  new City("Hamilton, Ontario", 36, 69, 53, 11, 1, 1, 43.261401,-79.887032),
-  new City("Waterloo, Ontario", 51, 58, 71, 6, 1, 1, 43.4642578, -80.5204096),
-  new City("Halifax, Nova Scotia", 39, 32, 86, 5, 1, 1, 44.674538,-63.614545),
-  new City("Victoria, British Columbia", 30, 83, 100, 4, 1, 1, 49.205529,-122.907447),
-  new City("Windsor, Ontario", 69, 50, 69, 3, 1, 1, 42.329805,-83.037058),
-  new City("Saskatoon, Saskatchewan", 57, 18, 61, 3, 1, 1, 52.1332, -106.6700),
-  new City("Regina, Saskatchewan", 41, 16, 84, 2, 1, 1, 50.4452, -104.6189),
-  new City("Sherbrooke, Quebec", 100, 65, 75, 1, 1, 1, 45.4010, 71.8824),
-  new City("St. John's, Newfoundland", 78, 30, 50, 1, 1, 1, 47.577628,-52.703957),
-  new City("Barrie, Ontario", 33, 47, 32, 1, 1, 1, 44.3894, 79.6903),
-  new City("Kelowna, British Columbia", 59, 100, 57, 1, 1, 1, 49.8880, 119.4960),
-  new City("Kingston, Ontario", 22, 42, 71, 0, 1, 1, 44.2312, 76.4860)
+  new City("Toronto, Ontario", 15, 32, 48, 100, 10, -1, 43.625985,-79.542025),
+  new City("Montreal, Quebec", 76, 50, 75, 66, 10, -1, 45.488221,-73.565538),
+  new City("Vancouver, British Columbia", 0, 66, 86, 40, 13, -1, 49.208871,-122.901347),
+  new City("Ottawa, Ontario", 52, 42, 55, 20, 70, -1, 45.4215296, -75.6971931),
+  new City("Calgary, Alberta", 20, 0, 0, 22, 100, -1, 51.040992,-114.030466),
+  new City("Edmonton, Alberta", 26, 6, 25, 21, 91, -1, 53.544389, -113.4909267),
+  new City("Québec City, Quebec", 76, 51, 96, 11, 44, -1, 46.753463,-71.430106),
+  new City("Winnipeg, Manitoba", 43, 41, 48, 11, 24, -1, 49.8997541, -97.1374937),
+  new City("Hamilton, Ontario", 36, 69, 53, 11, 1, -1, 43.261401,-79.887032),
+  new City("Waterloo, Ontario", 51, 58, 71, 6, 73, -1, 43.4642578, -80.5204096),
+  new City("Halifax, Nova Scotia", 39, 32, 86, 5, 39, -1, 44.674538,-63.614545),
+  new City("Victoria, British Columbia", 30, 83, 100, 4, 45, -1, 49.205529,-122.907447),
+  new City("Windsor, Ontario", 69, 50, 69, 3, 13, -1, 42.329805,-83.037058),
+  new City("Saskatoon, Saskatchewan", 57, 18, 61, 3, 66, -1, 52.1332, -106.6700),
+  new City("Regina, Saskatchewan", 41, 16, 84, 2, 74, -1, 50.4452, -104.6189),
+  new City("Sherbrooke, Quebec", 100, 65, 75, 1, 45, -1, 45.4010, -71.8824),
+  new City("St. John's, Newfoundland", 78, 30, 50, 1, 68, -1, 47.577628,-52.703957),
+  new City("Barrie, Ontario", 33, 47, 32, 1, 28, -1, 44.3894, -79.6903),
+  new City("Kelowna, British Columbia", 59, 100, 57, 1, 16, -1, 49.8880, -119.4960),
+  new City("Kingston, Ontario", 22, 42, 71, 0, 40, -1, 44.2312, -76.4860)
 ];
 
 var one   = 50;
@@ -70,6 +71,14 @@ function setMarkers(data) {
       icon: image,
       zIndex: zValue
     });
+    marker.addListener('click', function() {
+      //alert(this);
+      var index = this.zIndex
+      index = 20 - index;
+      console.log(index);
+      initVis(index);
+    });
+
     markerList.push(marker);
   }
 }
@@ -121,7 +130,7 @@ function initVis(cityIndex){
           }
       ]
   };
-  $("#overlay").show();
+  $("#draggable").show();
   new Chart(ctx, {
       type: "radar",
       data: data,
@@ -136,6 +145,14 @@ function initVis(cityIndex){
   });
 }
 
+function fixData(){
+  for (city in cityData) {
+    city.one = 100 - city.one + 1;
+    city.two = 100 - city.two + 1;
+    city.three = 100 - city.three + 1;
+  }
+}
+
 $(function() {
   var slide1 = document.getElementById('slide1');
   var slide2 = document.getElementById('slide2');
@@ -143,6 +160,7 @@ $(function() {
   var slide4 = document.getElementById('slide4');
   var slide5 = document.getElementById('slide5');
 
+  fixData();
 
   slide1.oninput = function(){
     one = this.value;
@@ -166,6 +184,7 @@ $(function() {
   }
 
   function update(){
+    $("#draggable").hide();
     create(cityData);
     cityData.sort(compare);
     generateList(cityData);
@@ -210,8 +229,8 @@ $(function() {
 
   function hello(){
     var contents = this.innerHTML;
-    contents = parseInt(contents.charAt(0));
-    initVis(contents);
+    contents = parseInt(contents.substr(0, contents.indexOf(':')));
+    initVis(contents - 1);
   }
 
   update();
