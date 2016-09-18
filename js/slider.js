@@ -21,6 +21,8 @@ class Importance {
   }
 }
 
+var extra = false;
+
 // One is Rent
 // Two is CPI
 // Three is Unemployment Rate
@@ -55,6 +57,7 @@ var two   = 50;
 var three = 50;
 var four  = 50;
 var five  = 50;
+var six  = 50;
 
 var markerList = [];
 
@@ -159,8 +162,23 @@ $(function() {
   var slide3 = document.getElementById('slide3');
   var slide4 = document.getElementById('slide4');
   var slide5 = document.getElementById('slide5');
+  var slide6 = document.getElementById('slide6');
 
   fixData();
+
+  $('#text-box').on('input', function() {
+    if (this.value == ''){
+        extra = false;
+    } else {
+      extra = true;
+    }
+    console.log(this.value);
+    // do your stuff
+  });
+
+  $('#goButton').on('click', function() {
+    update();
+  });
 
   slide1.oninput = function(){
     one = this.value;
@@ -180,6 +198,10 @@ $(function() {
   }
   slide5.oninput = function(){
     five = this.value;
+    update();
+  }
+  slide6.oninput = function(){
+    six = this.value;
     update();
   }
 
@@ -202,7 +224,8 @@ $(function() {
 
   function create(data){
     for (var i = 0; i < data.length; ++i){
-      if (true) {
+      if (!extra) {
+        console.log("no extra");
         var sum = 0;
         sum += data[i].one   * one;
         sum += data[i].two   * two;
@@ -211,7 +234,16 @@ $(function() {
         sum += data[i].five  * five;
         data[i].score = sum;
       } else {
-        // Yelp Integration will come later
+        // Yelp Integration Scaffolding
+        console.log("extra extra");
+        var sum = 0;
+        sum += data[i].one   * one;
+        sum += data[i].two   * two;
+        sum += data[i].three * three;
+        sum += data[i].four  * four;
+        sum += data[i].five  * five;
+        sum += Math.random() * 50 * six;
+        data[i].score = sum;
       }
     }
   }
