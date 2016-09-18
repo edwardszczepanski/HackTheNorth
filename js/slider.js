@@ -21,6 +21,10 @@ class Importance {
   }
 }
 
+// One is Rent
+// Two is CPI
+// Three is Unemployment Rate
+
 var cityData = [
   new City("Toronto, Ontario", 1, 2, 3, 4, 5, 1, 43.625985,-79.542025),
   new City("Montreal, Quebec", 100, 100, 100, 100, 100, 1, 45.488221,-73.565538),
@@ -55,13 +59,11 @@ function setMarkers(data) {
   for (var i = 0; i < data.length; ++i) {
     var markerNumber = i + 1;
     var city = data[i];
-    var myLatLng = new google.maps.LatLng(city.lat, city.lng);
     var image = "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" +   markerNumber + "|FE6256|000000";
     var zValue = data.length - i;
     var marker = new google.maps.Marker({
-      position: myLatLng,
+      position: {lat: city.lat, lng: city.lng},
       map: map,
-      //animation: google.maps.Animation.DROP,
       title: city.name,
       icon: image,
       zIndex: zValue
