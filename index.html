@@ -52,40 +52,41 @@
   </div>
 
   <div style="text-align: center; background: black; padding: 10px;" id="click">
-    <span style="color: white;">Hide Sliders</span>
+    <span style="color: white;">Toggle Sliders</span>
   </div>
 
   <div id="sliders" class="container starter-template">
     <div class="row text-center">
       <div class="col-sm-4 grid-style">
-        <span>Industry</span>
+        <span>Rent</span>
         <input style="margin-top: 5px; margin-right: 8px;" id="slide1" type="range" value="50" min="0" max="100" step="5">
       </div>
       <div class="col-sm-4 grid-style">
-        <span>Software Jobs</span>
+        <span>CPI</span>
         <input style="margin-top: 5px; margin-right: 8px;" id="slide2" type="range" value="50" min="0" max="100" step="5">
       </div>
       <div class="col-sm-4 grid-style">
-        <span>Demographics</span>
+        <span>Unemployment Rate</span>
         <input style="margin-top: 5px; margin-right: 8px;" id="slide3" type="range" value="50" min="0" max="100" step="5">
       </div>
       <div class="row text-center">
         <div class="col-sm-2"></div>
         <div class="col-sm-4 grid-style">
-          <span>Rent</span>
+          <span>Population</span>
           <input style="margin-top: 5px; margin-right: 8px;" id="slide4" type="range" value="50" min="0" max="100" step="5">
         </div>
         <div class="col-sm-4 grid-style">
-          <span>Food</span>
+          <span>(? Yelp ?)</span>
           <input style="margin-top: 5px; margin-right: 8px;" id="slide5" type="range" value="50" min="0" max="100" step="5">
         </div>
         <div class="col-sm-2"></div>
       </div>
     </div>
+  </div>
 
-    <div class="container" style="margin-top: 30px; margin-bottom: 30px;">
-      <div class="col-sm-8">
-        <div id="map"></div>
+  <div class="container" style="margin-top: 30px; margin-bottom: 30px;">
+    <div class="col-sm-8">
+      <div id="map"></div>
     </div>
 
     <div class="col-sm-4 scroll-list">
@@ -112,7 +113,7 @@
   <script src="./js/main.js"></script>
   <script src="./js/slider.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcULs3Vm0S7eJPMgEtzJZLksfir30hkpg&callback=initMap"
-    async defer></script>
+  async defer></script>
 </body>
 </html>
 
