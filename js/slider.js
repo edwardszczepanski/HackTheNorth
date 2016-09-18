@@ -84,6 +84,7 @@ $(function() {
     function update(){
         create(cityData);
         cityData.sort(compare);
+        generateList(cityData);
         console.log(cityData);
     }
 
@@ -111,5 +112,17 @@ $(function() {
         }
     }
 
+    function generateList(data){
+      var ul = document.getElementById("myList");
+      ul = '';
+      for (var i = 0; i < data.length; ++i) {
+        var ul = document.getElementById("myList");
+        var li = document.createElement("li");
+        li.appendChild(document.createTextNode((i + 1) + ":  " + data[i].name));
+        ul.appendChild(li);
+      }
+    }
+
+    update();
 
 });
